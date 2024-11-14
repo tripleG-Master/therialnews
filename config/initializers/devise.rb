@@ -14,7 +14,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '527cb18c2c404872c436850cbde45b25c74090c8af810af13c7301b378c8ed14d428b71968c4a7c4c999fbd7d19b34c4064a0a26a7022eefde5f39abc4779b68'
+  # config.secret_key = '0966a3b27360c4b860860e0be4065b00eb400cc9fe146ac79723880179ee0f35f0caf69ab063447f003b5cb23d1ab7282cae9d48818c524b53e4a0c48111bd03'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -24,7 +24,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = 'no_reply@therialnews.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -126,7 +126,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '4c78a8e565f38c79999f217136c338175b3c0bb0105fd7cc7dfe279ff82b8c7e9b1170211ec995d981c4dd0aae28146e6b952865325dc78b85c5f347ef97c66a'
+  # config.pepper = '3193c6f4e5d23da7f23f2ef4ae02a7c24d7d487696f943ee8e237c54bac24bcebf1e84aac1c04f159e462e29aa45b842273ee206344155dc053da8b5c3b9cd9f'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -263,7 +263,7 @@ Devise.setup do |config|
   # should add them to the navigational formats lists.
   #
   # The "*/*" below is required to match Internet Explorer requests.
-  # config.navigational_formats = ['*/*', :html, :turbo_stream]
+  config.navigational_formats = ['*/*', :html, :turbo_stream]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
@@ -309,5 +309,5 @@ Devise.setup do |config|
 
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
-  # config.sign_in_after_change_password = true
+  config.sign_in_after_change_password = true
 end

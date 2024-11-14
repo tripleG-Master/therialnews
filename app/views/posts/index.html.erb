@@ -1,16 +1,13 @@
 <p style="color: green"><%= notice %></p>
 
-<% content_for :title, "Posts" %>
+<% content_for :title, "News" %>
 
-<h1>Posts</h1>
-
-<div id="posts">
+<section id="posts" class="d-flex justify-content-center gap-3 flex-wrap">
   <% @posts.each do |post| %>
-    <%= render post %>
-    <p>
-      <%= link_to "Show this post", post %>
-    </p>
+  <div class="col-12 col-md-4">
+    <%= link_to post_path(post), class: "text-decoration-none text-dark" do %>
+      <%= render "single_post", post: post%>
+    <%end%>
+  </div> 
   <% end %>
-</div>
-
-<%= link_to "New post", new_post_path %>
+</section>

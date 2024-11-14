@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: %i[ index show]
+  before_action :authorize_user!, only: %i[edit update destroy]
 
 
   # GET /posts or /posts.json
@@ -10,6 +11,9 @@ class PostsController < ApplicationController
 
   # GET /posts/1 or /posts/1.json
   def show
+    @post = Post.find(params[:id])
+    @comment = Comment.new
+    @comments = @post.comments.includes(:user)
   end
 
   # GET /posts/new
@@ -23,7 +27,8 @@ class PostsController < ApplicationController
 
   # POST /posts or /posts.json
   def create
-    @post = Post.new(post_params)
+    #@post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
 
     respond_to do |format|
       if @post.save
@@ -67,6 +72,12 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:headline, :drophead, :body)
+      params.require(:post).permit(:headline, :drophead, :body, :user_id)
+    end
+
+    def authorize_user!
+      unless @post.user_id == current_user.id || current_user.role.role == "admin"
+        redirect_to posts_path, notice: "Not permission to do that"
+      end
     end
 end

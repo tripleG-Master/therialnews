@@ -1,10 +1,68 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @post %>
+<section class="container">
+  <div class="col-12 col-md-6 mx-auto">
+    <%= render "single_post", post: @post %>
+  </div>
+</section>
 
-<div>
-  <%= link_to "Edit this post", edit_post_path(@post) %> |
-  <%= link_to "Back to posts", posts_path %>
+<section class="container my-5">
+  <div class="col-12 col-md-6 mx-auto">
+    <%= render "new_comment_form", post: @post %>
+  </div>
+</section>
 
-  <%= button_to "Destroy this post", @post, method: :delete %>
-</div>
+<%
+=begin%>
+
+
+<% @comments.each do |comment| %>
+  <% if comment.user.present? %>
+    <p>User ID: <%= comment.user.id %></p>
+    <%= current_user if user_signed_in? %>
+  <% else %>
+    <p>No user associated with this comment.</p>
+  <% end %>
+<% end %>
+
+
+
+<%
+=end%>
+
+
+<section class="container justify-content-center">
+  <h2 class="display-6 text-center">  
+    <% if @comments.present? %>
+      More comments
+    <% else %>
+      No comments associated
+    <% end %>
+  </h2>
+  
+  <% if @comments.present? %> 
+    <% @comments.each do |comment| %>
+      <div class="col-12 col-md-6 mx-auto">
+        <div class="card mt-3">
+          <p>
+            <strong><%= comment.user.email %></strong> - 
+            <%= comment.created_at.strftime("%B %d, %Y at %H:%M") %>
+          </p>
+          <p>
+            <%= comment.description %>
+          </p>
+          <% if user_signed_in? && ( current_user.id == comment.user_id || current_user.role.role == "admin" )%>
+          <div class="d-flex justify-content-center gap-2">
+            <%= button_to comment, method: :delete, class: "btn btn-danger p-1", turbo_data: { confirm: "Are you sure you want to delete this post?" } do %>
+                <i class="bi bi-trash-fill text-smaller m-0"></i>
+            <% end %>
+          </div>
+          <% end %>
+        </div>
+
+      </div>
+    <% end %>
+    <% end %>
+
+</section>
+
