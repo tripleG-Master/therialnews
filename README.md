@@ -67,18 +67,17 @@ Para instalar y ejecutar la aplicación, sigue estos pasos:
 ## Uso
 Una vez que el servidor esté en funcionamiento, puedes acceder a la aplicación en tu navegador en http://127.0.0.1:3000. Desde allí, los usuarios pueden registrarse, iniciar sesión, crear noticias y comentar en las noticias existentes.
 
-<br>
-Usuarios de prueba
-- 'admin@mail.com',
-- 'gcarlos.gabriel4@gmail.com',
-- 'subscriber@mail.com',
-- 'user@mail.com',
-- 'user2@mail.com',
-- 'user3@mail.com',
 
-<br>
-Password
-- 'password'
+- Usuarios de prueba
+  - 'admin@mail.com',
+  - 'gcarlos.gabriel4@gmail.com',
+  - 'subscriber@mail.com',
+  - 'user@mail.com',
+  - 'user2@mail.com',
+  - 'user3@mail.com',
+
+- Password
+  - 'password'
 
 
 ## Licencia
