@@ -52,7 +52,7 @@ Para instalar y ejecutar la aplicación, sigue estos pasos:
 
 * Importante!! 
   
-  - Para el mailer gmail Para cuentas con 2AF Verificacion de 2 pasos Cuenta de Google / Seguridad / Verificacion en 2 pasos / Contraseñas de aplicacion (al final de la pagina)
+  - Para el mailer gmail Para cuentas con 2FA Verificacion de 2 pasos Cuenta de Google / Seguridad / Verificacion en 2 pasos / Contraseñas de aplicacion (al final de la pagina)
 
   - Luego, agrega tus credenciales de Gmail en el archivo que se abre:
 
